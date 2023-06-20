@@ -1,0 +1,13 @@
+<h2>Asynchronous Tests</h2>
+<!-- prettier-ignore -->
+<cco-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->async_test((t) =&gt; &#123;
+  document.addEventListener('someevent', (&#123; data: actual }) =&gt; &#123;
+    t.step(() =&gt; &#123;
+        assert_equals(actual, 'the expected value', 'a description');
+    });
+    t.done();
+ });
+}), 'a test description' );<!-- htmlmin:ignore --></cco-prism>
+<a class="footnote" href="https://web-platform-tests.org/writing-tests/testharness-api.html#asynchronous-tests"
+    >web-platform-tests.org/writing-tests/<br />testharness-api.html#asynchronous-tests</a
+>

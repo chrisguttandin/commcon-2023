@@ -1,0 +1,6 @@
+<h2>A tiny bug</h2>
+<!-- prettier-ignore -->
+<cco-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->const audioContext = new AudioContext();
+const gainNode = new GainNode(audioContext, &#123; gain: 0.5 });
+
+console.log(gainNode.gain.defaultValue);<!-- htmlmin:ignore --></cco-prism>

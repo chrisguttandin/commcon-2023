@@ -1,0 +1,13 @@
+<h2>Promise Tests</h2>
+<!-- prettier-ignore -->
+<cco-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->promise_test(
+  () =&gt; someThingThatReturnsAPromise().then((actual) =&gt; &#123;
+    const expected = 'the expected value';
+
+    assert_equals(actual, expected, 'a description');
+  }),
+  'a test description'
+);<!-- htmlmin:ignore --></cco-prism>
+<a class="footnote" href="https://web-platform-tests.org/writing-tests/testharness-api.html#promise-tests"
+    >web-platform-tests.org/writing-tests/testharness-api.html#promise-tests</a
+>

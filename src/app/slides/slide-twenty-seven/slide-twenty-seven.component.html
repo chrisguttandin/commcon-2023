@@ -1,0 +1,12 @@
+<h2>The actual test</h2>
+<!-- prettier-ignore -->
+<cco-prism language="javascript" ngPreserveWhitespaces><!-- htmlmin:ignore -->const audit = Audit.createTaskRunner();
+audit.define('test', function(task, should) &#123;
+  const context = new OfflineAudioContext(1, 1, 44100);
+  const defaultValue = -1;
+  const gainNode = new GainNode(context, &#123; gain: defaultValue });
+  should(gainNode.gain.defaultValue, "AudioParam's defaultValue")
+    .beEqualTo(defaultValue);
+  task.done();
+});
+audit.run();<!-- htmlmin:ignore --></cco-prism>
