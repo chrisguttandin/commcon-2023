@@ -1,7 +1,17 @@
 .stage {
     background-color: #eb3f0f;
-    padding: 10% 0;
+    height: 38.45vw;
+    padding: 5vw 0;
     position: relative;
+    width: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .stage {
+        height: calc(100% - 17.777vh);
+        padding: 8.888vh 0;
+        width: 163.897vh;
+    }
 }
 
 h1,
