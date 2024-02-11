@@ -4,9 +4,9 @@
 audit.define('test', function(task, should) &#123;
   const context = new OfflineAudioContext(1, 1, 44100);
   const defaultValue = -1;
-  const gainNode = new GainNode(context, &#123; gain: defaultValue });
+  const gainNode = new GainNode(context, &#123; gain: defaultValue &#125;);
   should(gainNode.gain.defaultValue, "AudioParam's defaultValue")
     .beEqualTo(defaultValue);
   task.done();
-});
+&#125;);
 audit.run();<!-- htmlmin:ignore --></cco-prism>
