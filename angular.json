@@ -60,7 +60,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "commcon-2023:build"
+                        "buildTarget": "commcon-2023:build"
                     }
                 },
                 "lint": {
@@ -80,10 +80,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "development": {
-                            "browserTarget": "commcon-2023:build:development"
+                            "buildTarget": "commcon-2023:build:development"
                         },
                         "production": {
-                            "browserTarget": "commcon-2023:build:production"
+                            "buildTarget": "commcon-2023:build:production"
                         }
                     },
                     "defaultConfiguration": "development",
