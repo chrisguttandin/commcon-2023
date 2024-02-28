@@ -20,14 +20,14 @@ module.exports = (grunt) => {
     return {
         'csp-production': {
             files: {
-                'build/commcon-2023/index.html': ['build/commcon-2023/index.html']
+                'build/commcon-2023/browser/index.html': ['build/commcon-2023/browser/index.html']
             },
             options: {
                 patterns: [
                     {
                         match: /<meta\shttp-equiv="content-security-policy"\s*\/?>/,
                         replacement: () => {
-                            const html = fs.readFileSync('build/commcon-2023/index.html', 'utf8'); // eslint-disable-line node/no-sync
+                            const html = fs.readFileSync('build/commcon-2023/browser/index.html', 'utf8'); // eslint-disable-line node/no-sync
                             const regex = /<script[^>]*?>(?<script>.*?)<\/script>/gm;
                             const scriptHashes = [`'sha256-${computeHashOfString(ENABLE_STYLES_SCRIPT, 'sha256', 'base64')}'`];
 
@@ -76,7 +76,7 @@ module.exports = (grunt) => {
                         }
                     },
                     {
-                        match: /<link\srel="stylesheet"\shref="(?<filename>styles\.[\da-z]+\.css)"\scrossorigin="anonymous"\sintegrity="(?<hash>sha384-[\d+/A-Za-z]+=*)"(?<media>\smedia="print")?[^>]*>/g,
+                        match: /<link\srel="stylesheet"\shref="(?<filename>styles-[\dA-Z]+\.css)"\scrossorigin="anonymous"\sintegrity="(?<hash>sha384-[\d+/A-Za-z]+=*)"(?<media>\smedia="print")?[^>]*>/g,
                         replacement: (_, filename, hash, media) =>
                             `<link crossorigin="anonymous" href="${filename}" rel="stylesheet" integrity="${hash}"${media}>`
                     },
@@ -89,7 +89,7 @@ module.exports = (grunt) => {
         },
         'manifest': {
             files: {
-                './': ['build/commcon-2023/ngsw.json']
+                './': ['build/commcon-2023/browser/ngsw.json']
             },
             options: {
                 patterns: [
@@ -110,8 +110,8 @@ module.exports = (grunt) => {
                         // Replace the hash value inside of the hashTable for "/(index|start).html" because it was modified before.
                         match: /"\/commcon-2023\/(?<filename>index|start)\.html":\s*"[\da-z]+"/g,
                         replacement: (_, filename) => {
-                            return `"/commcon-2023/${filename}.html": "${computeHashOfFile(
-                                `build/commcon-2023/${filename}.html`,
+                            return `"/commcon-2023/browser/${filename}.html": "${computeHashOfFile(
+                                `build/commcon-2023/browser/${filename}.html`,
                                 'sha1',
                                 'hex'
                             )}"`;
@@ -122,7 +122,7 @@ module.exports = (grunt) => {
         },
         'runtime': {
             files: {
-                './': ['build/commcon-2023/index.html']
+                './': ['build/commcon-2023/browser/index.html']
             },
             options: {
                 patterns: [
@@ -130,11 +130,11 @@ module.exports = (grunt) => {
                         match: /<script\ssrc="(?<filename>runtime(?:-es(?:2015|5))?.[\da-z]*\.js)"(?<moduleAttribute>\s(?:nomodule|type="module"))?\scrossorigin="anonymous"\sintegrity="sha384-[\d+/A-Za-z]+=*"><\/script>/g,
                         replacement: (_, filename, moduleAttribute) => {
                             if (moduleAttribute === undefined) {
-                                return `<script>${fs.readFileSync(`build/commcon-2023/${filename}`)}</script>`; // eslint-disable-line node/no-sync
+                                return `<script>${fs.readFileSync(`build/commcon-2023/browser/${filename}`)}</script>`; // eslint-disable-line node/no-sync
                             }
 
                             // eslint-disable-next-line node/no-sync
-                            return `<script${moduleAttribute}>${fs.readFileSync(`build/commcon-2023/${filename}`)}</script>`;
+                            return `<script${moduleAttribute}>${fs.readFileSync(`build/commcon-2023/browser/${filename}`)}</script>`;
                         }
                     }
                 ]

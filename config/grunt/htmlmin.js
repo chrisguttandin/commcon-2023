@@ -2,8 +2,8 @@ module.exports = {
     default: {
         files: [
             {
-                cwd: 'build/commcon-2023',
-                dest: 'build/commcon-2023',
+                cwd: 'build/commcon-2023/browser',
+                dest: 'build/commcon-2023/browser',
                 expand: true,
                 src: ['**/*.html']
             }

@@ -83,7 +83,7 @@ jobs:
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: ./build/commcon-2023
+                  path: ./build/commcon-2023/browser
 
             - id: deployment
               name: Deploy to GitHub Pages
