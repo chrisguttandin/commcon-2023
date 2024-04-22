@@ -45,7 +45,8 @@ import { SlideFiveComponent } from './slide-five/slide-five.component';
 import { SlideSixComponent } from './slide-six/slide-six.component';
 
 @NgModule({
-    declarations: [
+    imports: [
+        CommonModule,
         PrismComponent,
         SlideEightComponent,
         SlideEighteenComponent,
@@ -63,6 +64,7 @@ import { SlideSixComponent } from './slide-six/slide-six.component';
         SlideSeventeenComponent,
         SlideSixComponent,
         SlideSixteenComponent,
+        SlidesRoutingModule,
         SlideTenComponent,
         SlideThirteenComponent,
         SlideThirtyComponent,
@@ -88,7 +90,6 @@ import { SlideSixComponent } from './slide-six/slide-six.component';
         SlideTwentyThreeComponent,
         SlideTwentyTwoComponent,
         SlideTwoComponent
-    ],
-    imports: [CommonModule, SlidesRoutingModule]
+    ]
 })
 export class SlidesModule {}
