@@ -8,9 +8,9 @@
 
 @media (min-aspect-ratio: 16/9) {
     .stage {
-        height: calc(100% - 17.777vh);
-        padding: 8.888vh 0;
-        width: 163.897vh;
+        height: calc(100% - 10vh * 16 / 9);
+        padding: calc(5vh * 16 / 9) 0;
+        width: calc(92.2vh * 16 / 9);
     }
 }
 
