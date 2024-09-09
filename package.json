@@ -117,7 +117,7 @@
         "url": "https://github.com/chrisguttandin/commcon-2023.git"
     },
     "scripts": {
-        "prepare": "husky install",
+        "prepare": "husky",
         "test": "grunt lint && grunt test"
     },
     "version": "0.1.7"
